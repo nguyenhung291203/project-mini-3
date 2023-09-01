@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-mini-3</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 10px 20px;
+      }
+    </style>
+    <style>
+      .col-category {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        margin-top: 15px;
+      }
+      .category-item {
+        background: #fec456;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .category-item:hover{
+        transform: scale(1.1);
+        background: aqua;
+        
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+    <h5>Danh mục sản phẩm</h5>
+    <div class="category-list" id="category">
+      <div class="row">
+        <div class="col-category">
+          <div class="category-item" onclick="select(`smartphone`)">smartphone</div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <h5>Danh sách sản phẩm</h5>
+    <input type="text" id="productInput" placeholder="Nhập sản phẩm..." />
+    <button id="searchButton" onclick="productSearch()">Tìm kiếm</button>
+    <br /><br />
+    <select name="" id="selectInput">
+      <option value="default">Mặc định</option>
+      <option value="lowToHigh">Giá thấp đến cao</option>
+      <option value="highToLow">Giá cao đến thấp</option>
+      <option value="discount">Giảm giá nhiều</option>
+    </select>
+
+    <br /><br />
+
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        padding: 10px 20px;
+      }
+
+      body {
+        /* background: #eee; */
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+
+    <!-- <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div> -->
+
+    <style>
+      .productList .productItem {
+        border: 1px solid #ddd;
+
+        position: relative;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        /* transition:all 0.3s ease-in-out; */
+      }
+      .productList .productItem .productImg {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: contain;
+        /* border-radius: 8px; */
+        padding: 5px 10px;
+      }
+
+      .productList .productItem .productDiscountPercentage {
+        display: inline-block;
+        font-size: 12px;
+        padding: 5px 10px;
+        background: #bb8416;
+        border-radius: 8px;
+        color: #fff;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+      }
+
+      .productList .productItem .productContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 5px;
+      }
+      .productList .productItem .productContent .productContentLeft {
+      }
+
+      .productList .productItem .productContent .productTitle {
+        font-weight: bold;
+        font-size: 10px;
+      }
+
+      .productList .productItem .productContent .productPrice {
+        color: red;
+        font-weight: 550;
+        font-size: 10px;
+      }
+
+      .productList .productItem .productContent .productStock {
+        margin-top: 20px;
+        font-size: 10px;
+      }
+    </style>
+
+    <div class="productList">
+      <div class="row">
+        <div class="col-2">
+          <div class="productItem">
+            <img
+              src="https://i.dummyjson.com/data/products/3/thumbnail.jpg"
+              alt=""
+              class="productImg"
+            />
+            <div class="productDiscountPercentage">15%</div>
+            <div class="productContent">
+              <div class="productContentLeft">
+                <div class="productTitle">Iphone 9</div>
+                <div class="productPrice">1249$</div>
+              </div>
+              <div class="productContentRight">
+                <div class="productStock">Còn lại: 36 sp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+    <section id="sectionButton" onload="ready()">
+      <style>
+        .button{
+          padding:10px 20px;
+          background: #fec456;
+          min-width: 84px;
+          border:none;
+          align-items: center;
+
+        }
+        .button:hover, .limit{
+          border-radius: 8px 20px;
+          background:aqua;
+          transition:all 0.3s ease-in-out;
+        }
+        .currentPage{
+          margin: 0 15px;
+        }
+      </style>
+      <button class="button buttonBefore limit" onclick="back()">Trước</button>
+      <span class="currentPage">1</span>
+      <button class="button buttonAfter" onclick="next()">Sau</button>
+
+    </section>
+    <br><br><br><br>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+<!-- <div class="productList">
+    <div class="row">
+        <div class="col-2">
+            <div class="productItem">
+                <img src="https://i.dummyjson.com/data/products/3/thumbnail.jpg" alt="" class="productImg">
+                <div class="productDiscountPercentage">15%</div>
+                <div class="productContent">
+                    <div class="productContentLeft">
+                        <div class="productTitle">Iphone 9</div>
+                        <div class="productPrice">1249$</div>
+                    </div>
+                    <div class="productContentRight">
+                        <div class="productStock">Còn lại: 36 sp</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div> -->
