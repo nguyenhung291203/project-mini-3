@@ -11,9 +11,7 @@ let apiCurrent = apiProductsALl;
 
 // Hiện thị danh mục sản phẩm
 const displayCategory = fetchApi(apiProductsALl)
-.then(data=>{
-    console.log(data.products);
-})
+.then(data=>data.products)
     .then(data=>{
         return data.map(item=>item.category);
     })
