@@ -42,6 +42,7 @@ displayProducts(apiProductsALl)
 
 function displayProducts(api) {
     fetchApi(api)
+        .then(data=>data.products)
         .then(data => {
             let htmls = data.map(item => {
                 return `
