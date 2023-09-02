@@ -58,11 +58,11 @@
     <input type="text" id="productInput" placeholder="Nhập sản phẩm..." />
     <button id="searchButton" onclick="productSearch()">Tìm kiếm</button>
     <br /><br />
-    <select name="" id="selectInput">
-      <option value="default">Mặc định</option>
-      <option value="lowToHigh">Giá thấp đến cao</option>
-      <option value="highToLow">Giá cao đến thấp</option>
-      <option value="discount">Giảm giá nhiều</option>
+    <select name="" id="selectInput" onchange="change()">
+      <option value="">Mặc định</option>
+      <option value="_sort=price">Giá thấp đến cao</option>
+      <option value="_sort=price&_order=desc">Giá cao đến thấp</option>
+      <option value="_sort=discountPercentage&_order=desc">Giảm giá nhiều</option>
     </select>
 
     <br /><br />
@@ -131,6 +131,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         /* transition:all 0.3s ease-in-out; */
       }
       .productList .productItem .productImg {
@@ -214,18 +215,18 @@
           align-items: center;
 
         }
-        .button:hover, .limit{
+        .button:hover{
           border-radius: 8px 20px;
           background:aqua;
           transition:all 0.3s ease-in-out;
         }
-        .currentPage{
+        #currentPage{
           margin: 0 15px;
         }
       </style>
-      <button class="button buttonBefore limit" onclick="back()">Trước</button>
-      <span class="currentPage">1</span>
-      <button class="button buttonAfter" onclick="next()">Sau</button>
+      <button class="button" id="button--prev" onclick="back()">Trước</button>
+      <span id="currentPage">1</span>
+      <button class="button " id="button--next" onclick="next()">Sau</button>
 
     </section>
     <br><br><br><br>
