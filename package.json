@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "json-server --watch database.json",
+    "build": "react-scripts build && cp .env.production .env && cp manifest.prod.json public/manifest.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

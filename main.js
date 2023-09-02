@@ -6,7 +6,7 @@ const fetchApi = async (api) => {
 
 
 const apiCategory = "https://json-server-vercel-data.vercel.app/category";
-const apiProductsALl = "https://json-server-vercel-data.vercel.app/products";
+const apiProductsALl = "https://fe-project-mini-3.netlify.app/database.json";
 let apiCurrent = apiProductsALl;
 
 // Hiện thị danh mục sản phẩm
