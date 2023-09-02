@@ -5,12 +5,15 @@ const fetchApi = async (api) => {
 };
 
 
-const apiCategory = "https://json-server-vercel-data.vercel.app/category";
+
 const apiProductsALl = "https://fe-project-mini-3.netlify.app/database.json";
 let apiCurrent = apiProductsALl;
 
 // Hiện thị danh mục sản phẩm
 const displayCategory = fetchApi(apiProductsALl)
+.then(data=>{
+    console.log(data);
+})
     .then(data=>{
         return data.map(item=>item.category);
     })
